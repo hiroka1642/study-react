@@ -1,3 +1,4 @@
+import { loadGetInitialProps } from 'next/dist/next-server/lib/utils'
 import Head from 'next/head'
 import { Footer } from '../components/Footer'
 import {Headline} from '../components/Headline'
@@ -13,9 +14,12 @@ export  default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Headline page="about"/>
+        <Headline 
+        page="about" 
+        >
+          <code className={styles.code}>pages/about.js</code>
+        </Headline>
 
-        <Links />
 
       </main>
 
