@@ -3,25 +3,23 @@ import styles from "src/styles/Home.module.css";
 import Main from "src/components/Main";
 import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
-import { useCallback, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const foo = 1;
-  const handleclick = useCallback((e) => {
-    console.log(e.target);
-    e.preventDefault();
-    alert(foo);
-  }, []);
+  const [foo, setFoo] = useState(1);
+  // let foo = 1;
+  const handleclick = (e) => {
+    setFoo((foo) => foo + 1);
+  };
 
   useEffect(() => {
-    console.log("マウント時");
     document.body.style.backgroundColor = "lightblue";
 
     return () => {
-      console.log("アンマウント時");
       document.body.style.backgroundColor = "";
     };
   }, []);
+  console.log(foo);
 
   return (
     <div className={styles.container}>
@@ -30,9 +28,10 @@ export default function Home() {
       </Head>
       <Header />
       　　
-      <a href="/about" onClick={handleclick}>
+      <h1>{foo}</h1>
+      <button href="/about" onClick={handleclick}>
         ボタン
-      </a>
+      </button>
       <Main page="index" />
       <Footer />
     </div>
