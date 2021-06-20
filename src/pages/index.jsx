@@ -3,14 +3,19 @@ import styles from "src/styles/Home.module.css";
 import Main from "src/components/Main";
 import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function Home() {
-  const [foo, setFoo] = useState(1);
-  // let foo = 1;
-  const handleclick = (e) => {
-    setFoo((foo) => foo + 1);
-  };
+  const [count, setFoo] = useState(1);
+  // let count = 1;
+  const handleclick = useCallback(
+    () => {
+      if (count < 10) {
+        setFoo((count) => count + 1);
+      }
+    },
+    [count]
+  );
 
   useEffect(() => {
     document.body.style.backgroundColor = "lightblue";
@@ -19,7 +24,6 @@ export default function Home() {
       document.body.style.backgroundColor = "";
     };
   }, []);
-  console.log(foo);
 
   return (
     <div className={styles.container}>
@@ -28,7 +32,7 @@ export default function Home() {
       </Head>
       <Header />
       　　
-      <h1>{foo}</h1>
+      <h1>{count}</h1>
       <button href="/about" onClick={handleclick}>
         ボタン
       </button>
