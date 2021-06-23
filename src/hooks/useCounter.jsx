@@ -1,0 +1,18 @@
+import { useCallback, useState } from "react";
+
+
+export const useCounter = () => {
+  const [count, setCount] = useState(1);
+  const [isShow, setIsShow] = useState(true);
+  // let count = 1;
+  const handleclick = useCallback(() => {
+    if (count < 10) {
+      setCount((prevCount) => prevCount + 1);
+    }
+  }, [count]);
+
+  const handleDisplay = useCallback(() => {
+    setIsShow((prevIsshow) => !prevIsshow);
+  }, []);
+  return { count, isShow, handleclick, handleDisplay };
+};
