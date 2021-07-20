@@ -8,7 +8,8 @@ import { useInputArray } from "src/hooks/useInputArray";
 import { useBgLightBlue } from "src/hooks/useBgLightBlue";
 
 export default function About() {
-  const { count, isShow, handleclick, handleDisplay } = useCounter();
+  const { count, isShow, handleclick, handleDisplay, doubleCount } =
+    useCounter();
   const { text, array, handleAdd, handleChange } = useInputArray();
   useBgLightBlue();
 
@@ -18,7 +19,7 @@ export default function About() {
       <Head>
         <title>About Page</title>
       </Head>
-      {isShow ? <h1>{count}</h1> : null}
+      {isShow ? <h1>{doubleCount}</h1> : null}
       <button href="/about" onClick={handleclick}>
         ボタン
       </button>
