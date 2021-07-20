@@ -1,5 +1,6 @@
 import "src/styles/globals.css";
 import Head from "next/head";
+import { useCounter } from "src/hooks/useCounter";
 
 function MyApp({ Component, pageProps }) {
   return (

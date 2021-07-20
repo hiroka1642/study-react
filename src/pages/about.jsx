@@ -5,13 +5,14 @@ import Main from "src/components/Main";
 import styles from "src/styles/Home.module.css";
 import { useCounter } from "src/hooks/useCounter";
 import { useInputArray } from "src/hooks/useInputArray";
-import { useBgLightBlue } from "src/hooks/useBgLightBlue";
+import { useBgColor } from "src/hooks/useBgColor";
 
 export default function About() {
   const { count, isShow, handleclick, handleDisplay, doubleCount } =
     useCounter();
   const { text, array, handleAdd, handleChange } = useInputArray();
-  useBgLightBlue();
+
+  useBgColor();
 
   return (
     <div className={styles.container}>
