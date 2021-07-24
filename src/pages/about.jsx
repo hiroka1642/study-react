@@ -3,15 +3,19 @@ import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
 import Main from "src/components/Main";
 import styles from "src/styles/Home.module.css";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
 import { useBgColor } from "src/hooks/useBgColor";
 
-export default function About() {
-  const { count, isShow, handleclick, handleDisplay, doubleCount } =
-    useCounter();
-  const { text, array, handleAdd, handleChange } = useInputArray();
-
+export default function About({
+  count,
+  isShow,
+  handleclick,
+  handleDisplay,
+  doubleCount,
+  text,
+  array,
+  handleAdd,
+  handleChange,
+}) {
   useBgColor();
 
   return (
