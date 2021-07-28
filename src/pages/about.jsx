@@ -30,7 +30,7 @@ export default function About({
       </button>
       <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
       <input type="text" value={text} onChange={handleChange} />
-      <button onClick={handleAdd}>123</button>
+      <button onClick={handleAdd}>追加</button>
       <ul>
         {array.map((item) => {
           return <li key={item}>{item}</li>;
