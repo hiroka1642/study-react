@@ -1,17 +1,7 @@
 // import { useCallback, useEffect, useReducer } from "react";
+import { fetcher } from "src/utils/fetcher";
 import useSWR from "swr";
 
-const fetcher = async (url) => {
-  const response = await fetch(url);
-
-  //404の時
-  if (!response.ok) {
-    throw new Error("エラーが発生したため、データの取得に失敗しました");
-  }
-
-  const json = await response.json();
-  return json;
-};
 
 export const usePosts = () => {
   const { data, error } = useSWR(
