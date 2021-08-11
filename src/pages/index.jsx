@@ -1,10 +1,8 @@
 import Head from "next/head";
 import { Header } from "src/components/Header";
 import styles from "src/styles/Home.module.css";
-import { useBgColor } from "src/hooks/useBgColor";
 
 const Index = () => {
-  useBgColor();
 
   return (
     <div className={styles.container}>
