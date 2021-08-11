@@ -6,7 +6,7 @@ const PostId = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <Post />
+      <Post/>
     </div>
   );
 };
