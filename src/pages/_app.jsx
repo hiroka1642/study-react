@@ -2,7 +2,7 @@ import "src/styles/globals.css";
 import Head from "next/head";
 import { Layout } from "src/components/Layout/Index";
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = (props) => {
   return (
     <>
       <Head>
@@ -10,7 +10,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
 
       <Layout>
-        <Component {...pageProps} />
+        <props.Component {...props.pageProps} />
       </Layout>
     </>
   );

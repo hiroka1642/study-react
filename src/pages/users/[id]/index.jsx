@@ -1,13 +1,13 @@
 import { Header } from "src/components/Header";
-import { User as UserComponent } from "src/components/User";
+import { User } from "src/components/User";
 
-const User = () => {
+const UserId = () => {
   return (
     <div>
       <Header />
-      <UserComponent />
+      <User />
     </div>
   );
 };
 
-export default User;
+export default UserId;
