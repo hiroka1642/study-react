@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { CommentByPostId } from "src/components/Comment/CommentByPostId";
 import { usePost } from "src/hooks/usePost";
 
 export const Post = () => {
