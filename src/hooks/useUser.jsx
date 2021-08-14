@@ -5,7 +5,9 @@ import useSWR from "swr";
 export const useUser = () => {
   const router = useRouter();
   const { data, error } = useSWR(
-    `https://jsonplaceholder.typicode.com/users/${router.query.id}`,
+    router.query.id
+      ? `https://jsonplaceholder.typicode.com/users/${router.query.id}`
+      : null,
     fetcher
   );
 
@@ -14,5 +16,4 @@ export const useUser = () => {
     error,
     isLoading: !error && !data,
   };
-
 };
