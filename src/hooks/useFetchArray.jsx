@@ -11,13 +11,14 @@ export const useFetchArray = (url) => {
   };
 };
 
-export const useUsers = () => {
-  return useFetchArray("https://jsonplaceholder.typicode.com/users");
-};
+const API_URL = "https://jsonplaceholder.typicode.com";
 
-export const usePosts = () => {
-  return useFetchArray("https://jsonplaceholder.typicode.com/posts");
-};
 export const useComments = () => {
-  return useFetchArray("https://jsonplaceholder.typicode.com/comments");
+  return useFetchArray(`${API_URL}/comments`);
+};
+export const usePosts = () => {
+  return useFetchArray(`${API_URL}/posts`);
+};
+export const useUsers = () => {
+  return useFetchArray(`${API_URL}/users`);
 };
