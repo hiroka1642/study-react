@@ -1,28 +1,18 @@
 import Link from "next/link";
-import { useComment } from "src/hooks/useComment";
-import { useFetchArray } from "src/hooks/useFetchArray";
+import { usePostsByPostId } from "src/hooks/useFetchArray";
 
-export const PostByPostId = () => {
-  const {
-    data: comment,
-    error: commenterror,
-    isLoading: commentloading,
-  } = useComment();
+export const PostsByPostId = (props) => {
   const {
     data: post,
     error: posterror,
     isLoading: postloading,
-  } = useFetchArray(
-    comment
-      ? `https://jsonplaceholder.typicode.com/posts/?id=${comment.postId}`
-      : null
-  );
+  } = usePostsByPostId(props.id);
 
-  if (postloading || commentloading) {
+  if (postloading) {
     return <div>ローディング中</div>;
   }
 
-  if (posterror || commenterror) {
+  if (posterror) {
     return <div>エラーが発生しました</div>;
   }
 

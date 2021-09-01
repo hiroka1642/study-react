@@ -2,27 +2,15 @@ import { useRouter } from "next/router";
 import { fetcher } from "src/utils/fetcher";
 import useSWR from "swr";
 
-
-export const usePost = () => {
-  const router = useRouter();
-  const { data: post, error: postError } = useSWR(
-    router.query.id
-      ? `https://jsonplaceholder.typicode.com/posts/${router.query.id}`
-      : null,
-    fetcher
-  );
-  //以下わかりそうでまだわかっていない
-  const { data: user, error: userError } = useSWR(
-    post?.userId
-      ? `https://jsonplaceholder.typicode.com/users/${post.userId}`
-      : null,
+export const usePost = (id) => {
+  const { data, error } = useSWR(
+    id ? `https://jsonplaceholder.typicode.com/posts/${id}` : null,
     fetcher
   );
 
   return {
-    post,
-    user,
-    error: postError || userError,
-    isLoading: !user && !userError,
+    data,
+    error,
+    isLoading: !data && !error,
   };
 };

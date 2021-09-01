@@ -1,3 +1,4 @@
+import { PostsByUserId } from "src/components/Posts/PostsByUserId";
 import { useUser } from "src/hooks/useUser";
 
 export const User = () => {
@@ -13,8 +14,13 @@ export const User = () => {
   return (
     <div>
       <h1>{data?.name}</h1>
-      <p>{data?.username}</p>
-      <p>{data?.email}</p>
+      <h2>詳細</h2>
+      <ul>
+        <li>{data?.username}</li>
+        <li>{data?.email}</li>
+      </ul>
+      <h2>投稿</h2>
+      <PostsByUserId id={data.id} />
     </div>
   );
 };

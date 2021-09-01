@@ -1,9 +1,12 @@
 import Head from "next/head";
-import { CommentByPostId } from "src/components/Comment/CommentByPostId";
+import { useRouter } from "next/router";
+import { CommentsByPostId } from "src/components/Comments/CommentsByPostId";
+import { UserByPostId } from "src/components/User/UserByPostId";
 import { usePost } from "src/hooks/usePost";
 
 export const Post = () => {
-  const { post, user, error, isLoading } = usePost();
+  const router = useRouter();
+  const { data, error, isLoading } = usePost(router.query.id);
 
   if (isLoading) {
     return <div>ローディング中</div>;
@@ -16,12 +19,14 @@ export const Post = () => {
   return (
     <div>
       <Head>
-        <title>{post?.title}</title>
+        <title>{data?.title}</title>
       </Head>
 
-      <h1>{post?.title}</h1>
-      <p>{post?.body}</p>
-      {user?.name ? <div>Created by {user.name}</div> : null}
+      <h1>{data?.title}</h1>
+      <p>{data?.body}</p>
+      <UserByPostId id={data.userId} />
+      <h1>コメント</h1>
+      <CommentsByPostId id={data.id} />
     </div>
   );
 };

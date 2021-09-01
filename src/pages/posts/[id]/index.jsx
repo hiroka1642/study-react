@@ -1,4 +1,5 @@
-import { CommentByPostId } from "src/components/Comment/CommentByPostId";
+import { CommentsByPostId } from "src/components/Comments/CommentsByPostId";
+import { CommentByPostId } from "src/components/Comments/CommentsByPostId";
 import { Header } from "src/components/Header";
 import { Post } from "src/components/Post";
 
@@ -7,7 +8,6 @@ const PostsId = () => {
     <div>
       <Header />
       <Post />
-      <CommentByPostId />
     </div>
   );
 };
