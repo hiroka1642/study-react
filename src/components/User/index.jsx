@@ -5,6 +5,7 @@ import { useUser } from "src/hooks/useUser";
 export const User = () => {
   const router = useRouter();
   const { data, error, isLoading } = useUser(router.query.id);
+  console.log(data);
 
   if (isLoading) {
     return <div>ローディング中</div>;
@@ -22,7 +23,7 @@ export const User = () => {
         <li>アカウント名：{data?.email}</li>
         <li>住所：{data?.address.city}</li>
         <li>電話番号：{data?.phone}</li>
-        <li>Webサイト{data?.website}</li>
+        <li>Webサイト:{data?.website}</li>
         <li>勤務先：{data?.company.name}</li>
       </ul>
       <h2 className="font-bold text-xl mt-10">投稿</h2>
