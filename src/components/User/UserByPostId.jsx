@@ -10,5 +10,5 @@ export const UserByPostId = (props) => {
   if (error) {
     return <div>{error.message}</div>;
   }
-  return <div>{data?.name ? <div>Created by {data.name}</div> : null}</div>;
+  return <div className="text-lg">Created by {data.name}</div>;
 };

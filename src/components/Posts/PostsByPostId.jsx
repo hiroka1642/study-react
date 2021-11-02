@@ -22,7 +22,7 @@ export const PostsByPostId = (props) => {
         return (
           <p key={item.id}>
             <Link href={`/posts/${item.id}`}>
-              <a>{item.title}</a>
+              <a className="text-xl hover:text-blue-500">{item.title}</a>
             </Link>
           </p>
         );
