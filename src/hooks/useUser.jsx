@@ -1,12 +1,18 @@
+import { useRouter } from "next/router";
 import { fetcher } from "src/utils/fetcher";
-import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
 
-export const useUser = (id) => {
-  const { data, error } = useSWR(
-    id ? `https://jsonplaceholder.typicode.com/users/${id}` : null,
+export const useUser = () => {
+  const router = useRouter();
+
+  const { data, error } = useSWRImmutable(
+    router.query.id
+      ? `https://jsonplaceholder.typicode.com/users/${router.query.id}`
+      : null,
     fetcher
   );
 
+  console.log(data);
   return {
     data,
     error,

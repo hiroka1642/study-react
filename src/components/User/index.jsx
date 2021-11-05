@@ -3,8 +3,7 @@ import { PostsByUserId } from "src/components/Posts/PostsByUserId";
 import { useUser } from "src/hooks/useUser";
 
 export const User = () => {
-  const router = useRouter();
-  const { data, error, isLoading } = useUser(router.query.id);
+  const { data, error, isLoading } = useUser();
   console.log(data);
 
   if (isLoading) {
