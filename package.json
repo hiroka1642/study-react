@@ -15,10 +15,10 @@
     "swr": "^1.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.3",
+    "autoprefixer": "^10.4.0",
     "eslint": "^7.31.0",
     "eslint-config-next": "^11.0.1",
-    "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.9"
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19"
   }
 }
